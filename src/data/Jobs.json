@@ -1,0 +1,93 @@
+[
+  {
+    "name": "all",
+    "equipment": {
+      "weapon": [
+        "axe",
+        "claw",
+        "hammer",
+        "katana",
+        "knight sword",
+        "lance",
+        "materia blade", 
+        "rod",
+        "staff",
+        "sword",
+        "boomerang",
+        "crossbow",
+        "gun",
+        "bow",
+        "dagger",
+        "ninja sword",
+        "whip",
+        "book",
+        "instrument",
+        "pole"
+      ],
+      "body": [
+        "armor",
+        "clothes",
+        "robe"
+      ],
+      "head": [
+        "hat",
+        "helm"
+      ],
+      "bracelet": [
+        "bracelet"
+      ],
+      "accessory": [
+        "accessory"
+      ]
+    }
+  },
+  {
+    "name": "squire",
+    "equipment": {
+      "weapon": [
+        "axe",
+        "dagger",
+        "hammer",
+        "knight sword",
+        "sword"
+      ],
+      "body": [
+        "armor",
+        "clothes",
+        "robe"
+      ],
+      "head": [
+        "hat",
+        "helm"
+      ],
+      "bracelet": [
+        "bracelet"
+      ],
+      "accessory": [
+        "accessory"
+      ]
+    }
+  },
+  {
+    "name": "chemist",
+    "equipment": {
+      "weapon": [
+        "dagger",
+        "gun"
+      ],
+      "body": [
+        "clothes",
+        "robe"
+      ],
+      "head": [
+        "hat"
+      ],
+      "bracelet": [
+        "bracelet"
+      ],
+      "accessory": [
+        "accessory"
+      ]
+    }
+  }
+]

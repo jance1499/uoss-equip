@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Onion Sword",
+        "type": "sword",
+        "requirements": {
+            "strength": 10,
+            "agility": 10,
+            "vitality": 10,
+            "wisdom": 10,
+            "will": 10
+        }
+    },
+    {
+        "name": "Onion Armor",
+        "type": "armor",
+        "requirements": {
+            "strength": 5,
+            "agility": 0,
+            "vitality": 5,
+            "wisdom": 5,
+            "will": 5
+        }
+    },
+    {
+        "name": "Onion Hat",
+        "type": "hat",
+        "requirements": {
+            "strength": 0,
+            "agility": 5,
+            "vitality": 5,
+            "wisdom": 5,
+            "will": 5
+        }
+    },
+    {
+        "name": "Magic Ring",
+        "type": "accessory",
+        "requirements": {
+            "strength": 0,
+            "agility": 0,
+            "vitality": 0,
+            "wisdom": 0,
+            "will": 0
+        },
+        "statBonus": {
+            "wisdom": 20
+        }
+    }
+]
