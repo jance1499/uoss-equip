@@ -14,9 +14,6 @@ function EquipmentFilter(props) {
 
     return (
       <div>
-        {/* <Typography variant="title" color="inherit">
-          {props.label}
-        </Typography> */}
         {props.filterItems.map(item => {
           let filterIsOn = false;
 
