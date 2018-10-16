@@ -21,15 +21,15 @@ function ExpansionPanelFilter(props) {
         <div className={classes.root}>
             {Object.keys(props.filterCategories).map(category => {
                 return (
-                    <ExpansionPanel>
+                    <ExpansionPanel key={category}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography>{category}</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <EquipmentFilter
-                                setFilter={props.setFilter}
-                                filterItems={props.filterCategories[category]}
-                                filters={props.filters}
+                                setFilters={props.filterCategories[category].setFilters}
+                                filterItems={props.filterCategories[category].filterItems}
+                                filters={props.filterCategories[category].filters}
                             />
                         </ExpansionPanelDetails>
                     </ExpansionPanel>

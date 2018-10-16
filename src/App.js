@@ -28,7 +28,8 @@ class App extends Component {
         wisdom: "",
         will: ""
       },
-      filters: [],
+      typeFilters: [],
+      statBonusFilters: [],
       availableItems: []
     };
   }
@@ -41,16 +42,19 @@ class App extends Component {
         <NavBar />
         <FilterDrawer
           setStat={this.setStat}
-          setFilter={this.setFilter}
+          setTypeFilters={this.setTypeFilters}
+          setStatBonusFilters={this.setStatBonusFilters}
           setAvailableItems={this.setAvailableItems}
           stats={this.state.stats}
-          filters={this.state.filters}
+          typeFilters={this.state.typeFilters}
+          statBonusFilters={this.state.statBonusFilters}
         />
         <main>
           <div className={classes.toolbar} />
           <Equipment
             stats={this.state.stats}
-            filters={this.state.filters}
+            typeFilters={this.state.typeFilters}
+            statBonusFilters={this.state.statBonusFilters}
             availableItems={this.state.availableItems}
           />
         </main>
@@ -64,8 +68,8 @@ class App extends Component {
     this.setState({ stats: stats });
   }
 
-  setFilter = filter => {
-    let filters = this.state.filters;
+  setStatBonusFilters = filter => {
+    let filters = this.state.statBonusFilters;
 
     if (filters.indexOf(filter) > -1) {
       filters.splice(filters.indexOf(filter), 1)
@@ -73,7 +77,19 @@ class App extends Component {
       filters.push(filter);
     }
 
-    this.setState({ filters: filters });
+    this.setState({ statBonusFilters: filters });
+  }
+
+  setTypeFilters = filter => {
+    let filters = this.state.typeFilters;
+
+    if (filters.indexOf(filter) > -1) {
+      filters.splice(filters.indexOf(filter), 1)
+    } else {
+      filters.push(filter);
+    }
+
+    this.setState({ typeFilters: filters });
   }
 
   setAvailableItems = availableItems => {

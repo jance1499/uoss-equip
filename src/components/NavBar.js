@@ -16,7 +16,7 @@ function NavBar(props) {
     return(
         <AppBar position="absolute" className={classes.appBar}>
             <Toolbar>
-                <Typography variant="title" color="inherit">
+                <Typography variant="h6" color="inherit">
                     UOSS Equip
                 </Typography>
             </Toolbar>

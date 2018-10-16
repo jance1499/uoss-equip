@@ -26,7 +26,7 @@ function EquipmentFilter(props) {
               key={item}
               label={item}
               clickable
-              onClick={() => props.setFilter(item)}
+              onClick={() => props.setFilters(item)}
               className={classes.chip}
               color={ filterIsOn ? "primary" : "default" }
             />

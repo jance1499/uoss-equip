@@ -39,7 +39,11 @@ class JobSelection extends React.Component {
     });
 
     this.setState({ equipment: job.equipment });
-    let availableItems = job.equipment.weapon.concat(job.equipment.body).concat(job.equipment.head);
+    let availableItems = job.equipment.weapon
+      .concat(job.equipment.body)
+      .concat(job.equipment.head)
+      .concat(job.equipment.bracelet)
+      .concat(job.equipment.accessory);
     this.props.setAvailableItems(availableItems)
   };
 
@@ -61,9 +65,9 @@ class JobSelection extends React.Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <EquipmentFilter
-              setFilter={this.props.setFilter}
+              setFilters={this.props.setTypeFilters}
               filterItems={this.state.equipment.weapon}
-              filters={this.props.filters}
+              filters={this.props.typeFilters}
             />
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -76,24 +80,24 @@ class JobSelection extends React.Component {
             <div className={classes.column}>
 
               <EquipmentFilter
-                setFilter={this.props.setFilter}
+                setFilters={this.props.setTypeFilters}
                 filterItems={this.state.equipment.body}
-                filters={this.props.filters}
+                filters={this.props.typeFilters}
               />
               <EquipmentFilter
-                setFilter={this.props.setFilter}
+                setFilters={this.props.setTypeFilters}
                 filterItems={this.state.equipment.head}
-                filters={this.props.filters}
+                filters={this.props.typeFilters}
               />
               <EquipmentFilter
-                setFilter={this.props.setFilter}
+                setFilters={this.props.setTypeFilters}
                 filterItems={this.state.equipment.bracelet}
-                filters={this.props.filters}
+                filters={this.props.typeFilters}
               />
               <EquipmentFilter
-                setFilter={this.props.setFilter}
+                setFilters={this.props.setTypeFilters}
                 filterItems={this.state.equipment.accessory}
-                filters={this.props.filters}
+                filters={this.props.typeFilters}
               />
             </div>
           </ExpansionPanelDetails>

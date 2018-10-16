@@ -15,7 +15,6 @@
         "type": "armor",
         "requirements": {
             "strength": 5,
-            "agility": 0,
             "vitality": 5,
             "wisdom": 5,
             "will": 5
@@ -25,7 +24,6 @@
         "name": "Onion Hat",
         "type": "hat",
         "requirements": {
-            "strength": 0,
             "agility": 5,
             "vitality": 5,
             "wisdom": 5,
@@ -35,14 +33,7 @@
     {
         "name": "Magic Ring",
         "type": "accessory",
-        "requirements": {
-            "strength": 0,
-            "agility": 0,
-            "vitality": 0,
-            "wisdom": 0,
-            "will": 0
-        },
-        "statBonus": {
+        "statBonuses": {
             "wisdom": 20
         }
     }

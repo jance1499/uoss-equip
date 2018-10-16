@@ -17,14 +17,15 @@ const styles = theme => ({
   },
 });
 
+// Filter based on the selected chips in the JobSelection component.
 function filterSelectedItemTypes(items, filters) {
   let filteredItems = [];
 
   if (filters.length > 0) {
-    filters.forEach(function (filter) {
+    filters.forEach(filter => {
       let filtered = items.filter(item => item.type === filter);
       filteredItems = filteredItems.concat(filtered);
-    })
+    });
   } else {
     filteredItems = items;
   }
@@ -32,7 +33,84 @@ function filterSelectedItemTypes(items, filters) {
   return filteredItems;
 }
 
+// Filter based on the selected chips in the FilterDrawer component for stat bonuses.
+function filterSelectedStatBonuses(items, filters) {
+  let filteredItems = [];
+  let filtered = [];
+
+  // Set the default values if stat bonuses aren't provided.
+  items.forEach(item => {
+    if (item.statBonuses) {
+      item.statBonuses.strength = item.statBonuses.strength || 0;
+      item.statBonuses.agility = item.statBonuses.agility || 0;
+      item.statBonuses.vitality = item.statBonuses.vitality || 0;
+      item.statBonuses.wisdom = item.statBonuses.wisdom || 0;
+      item.statBonuses.will = item.statBonuses.will || 0;
+    } else {
+      item.statBonuses = {
+        strength: 0,
+        agility: 0,
+        vitality: 0,
+        wisdom: 0,
+        will: 0
+      }
+    }
+  });
+
+  if (filters.length > 0) {
+    filters.forEach(filter => {
+      console.log(filter);
+      switch (filter) {
+        case "str":
+          filtered = items.filter(item => item.statBonuses.strength > 0);
+          break;
+        case "agi":
+          filtered = items.filter(item => item.statBonuses.agility > 0);
+          break;
+        case "vit":
+          filtered = items.filter(item => item.statBonuses.vitality > 0);
+          break;
+        case "wis":
+          filtered = items.filter(item => item.statBonuses.wisdom > 0);
+          break;
+        case "will":
+          filtered = items.filter(item => item.statBonuses.will > 0);
+          break;
+        default:
+          filtered = items;
+      }
+
+      filteredItems = filteredItems.concat(filtered);
+    });
+  } else {
+    filteredItems = items;
+  }
+
+  return filteredItems;
+}
+
+// Filters based on input from the Stats component.
 function filterStatRequirements(items, stats) {
+  // Set the default values if requirements aren't provided.
+  items.forEach(item => {
+    if (item.requirements) {
+      item.requirements.strength = item.requirements.strength || 0;
+      item.requirements.agility = item.requirements.agility || 0;
+      item.requirements.vitality = item.requirements.vitality || 0;
+      item.requirements.wisdom = item.requirements.wisdom || 0;
+      item.requirements.will = item.requirements.will || 0;
+    } else {
+      item.requirements = {
+        strength: 0,
+        agility: 0,
+        vitality: 0,
+        wisdom: 0,
+        will: 0
+      }
+    }
+  });
+
+  // If no filters are provided, return all items.
   if (stats.strength === "" &&
     stats.agility === "" &&
     stats.vitality === "" &&
@@ -49,6 +127,7 @@ function filterStatRequirements(items, stats) {
     .filter(item => item.requirements.will <= stats.will);
 }
 
+// Retrieve all equipment that is available based of unselected chips from JobSelection component.
 function filterAvailableItemTypes(items, availableItemTypes) {
   if (availableItemTypes.length > 0) {
     return items.filter(item => availableItemTypes.includes(item.type));
@@ -62,7 +141,8 @@ function Equipment(props) {
 
   let filteredItems = [];
   filteredItems = filterStatRequirements(items, props.stats);
-  filteredItems = filterSelectedItemTypes(filteredItems, props.filters);
+  filteredItems = filterSelectedItemTypes(filteredItems, props.typeFilters);
+  filteredItems = filterSelectedStatBonuses(filteredItems, props.statBonusFilters);
   filteredItems = filterAvailableItemTypes(filteredItems, props.availableItems);
 
   return (
