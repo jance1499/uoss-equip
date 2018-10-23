@@ -30,6 +30,7 @@ class App extends Component {
       },
       typeFilters: [],
       statBonusFilters: [],
+      buffFilters: [],
       availableItems: []
     };
   }
@@ -47,13 +48,16 @@ class App extends Component {
           setAvailableItems={this.setAvailableItems}
           stats={this.state.stats}
           typeFilters={this.state.typeFilters}
+          buffFilters={this.state.buffFilters}
           statBonusFilters={this.state.statBonusFilters}
         />
         <main>
           <div className={classes.toolbar} />
+          
           <Equipment
             stats={this.state.stats}
             typeFilters={this.state.typeFilters}
+            buffFilters={this.state.buffFilters}
             statBonusFilters={this.state.statBonusFilters}
             availableItems={this.state.availableItems}
           />
@@ -69,33 +73,35 @@ class App extends Component {
   }
 
   setStatBonusFilters = filter => {
-    let filters = this.state.statBonusFilters;
-
-    if (filters.indexOf(filter) > -1) {
-      filters.splice(filters.indexOf(filter), 1)
-    } else {
-      filters.push(filter);
-    }
-
+    let filters = setFilters(filter, this.state.statBonusFilters);
     this.setState({ statBonusFilters: filters });
   }
 
   setTypeFilters = filter => {
-    let filters = this.state.typeFilters;
-
-    if (filters.indexOf(filter) > -1) {
-      filters.splice(filters.indexOf(filter), 1)
-    } else {
-      filters.push(filter);
-    }
-
+    let filters = setFilters(filter, this.state.typeFilters);
     this.setState({ typeFilters: filters });
+  }
+
+  setBuffFilters = filter => {
+    let filters = setFilters(filter, this.state.buffFilters);
+    this.setState({ buffFilters: filters });
   }
 
   setAvailableItems = availableItems => {
     this.setState({ availableItems: availableItems });
-    console.log(availableItems);
   }
 }
+
+const setFilters = (filter, currentFilters) => {
+  let filters = currentFilters;
+
+  if (filters.indexOf(filter) > -1) {
+    filters.splice(filters.indexOf(filter), 1)
+  } else {
+    filters.push(filter);
+  }
+
+  return filters;
+};
 
 export default withStyles(styles)(App);

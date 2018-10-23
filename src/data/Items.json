@@ -36,5 +36,10 @@
         "statBonuses": {
             "wisdom": 20
         }
+    },
+    {
+        "name": "Pod Bracelet",
+        "type": "accessory",
+        "buffs": ["protect", "shell"]
     }
 ]

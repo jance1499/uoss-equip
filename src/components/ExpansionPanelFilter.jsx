@@ -12,7 +12,7 @@ const styles = theme => ({
     root: {
         overflow: 'hidden',
     }
-  });
+});
 
 function ExpansionPanelFilter(props) {
     const { classes } = props;

@@ -1,7 +1,7 @@
-import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core';
 
 const styles = theme => ({
@@ -12,13 +12,13 @@ const styles = theme => ({
 
 function NavBar(props) {
     const { classes } = props;
-    
-    return(
+
+    return (
         <AppBar position="absolute" className={classes.appBar}>
             <Toolbar>
                 <Typography variant="h6" color="inherit">
                     UOSS Equip
-                </Typography>
+            </Typography>
             </Toolbar>
         </AppBar>
     )
